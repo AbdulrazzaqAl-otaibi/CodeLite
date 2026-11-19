@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كود لايت | CodeLite — تصميم مواقع إلكترونية احترافية</title>
+<meta name="description" content="وكالة رقمية متخصصة في تصميم مواقع سريعة ومتجاوبة وعصرية للمتاجر والمقاهي والشركات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['"IBM Plex Sans Arabic"','Tajawal','system-ui','sans-serif']},colors:{navy:'#0B1426',ink:'#16213A',brand:'#2F6BFF',sky:'#6FA3FF',mist:'#F3F6FC'}}}}
+</script>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'IBM Plex Sans Arabic',Tajawal,system-ui,sans-serif;background:#fff;color:#16213A}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(47,107,255,.35);border-color:#2F6BFF}
+.btn{transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.grid-bg{background-image:linear-gradient(rgba(111,163,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(111,163,255,.08) 1px,transparent 1px);background-size:44px 44px}
+.code{direction:ltr;text-align:left;font-family:ui-monospace,Menlo,Consolas,monospace}
+.caret{display:inline-block;width:7px;height:14px;background:#6FA3FF;vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+:focus-visible{outline:3px solid #6FA3FF;outline-offset:3px}
+input,textarea,select{background-color:#fff!important;color:#16213A!important;color-scheme:light;-webkit-text-fill-color:#16213A}
+input::placeholder,textarea::placeholder{color:#94a3b8}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.caret{animation:none}html{scroll-behavior:auto}.card,.btn{transition:none}}
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Navbar -->
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200" style="padding-top:env(safe-area-inset-top,0px)">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2 font-bold text-lg text-navy" aria-label="كود لايت">
+      <span class="grid place-items-center w-9 h-9 rounded-lg bg-navy text-sky code text-sm font-semibold">&lt;/&gt;</span>
+      <span>كود لايت <span class="text-slate-400 font-normal">|</span> <span dir="ltr" class="text-brand">CodeLite</span></span>
+    </a>
+    <ul class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+      <li><a class="hover:text-brand" href="#why">لماذا نحن</a></li>
+      <li><a class="hover:text-brand" href="#works">أعمالنا</a></li>
+      <li><a class="hover:text-brand" href="#plans">الباقات</a></li>
+      <li><a class="hover:text-brand" href="#steps">خطوات العمل</a></li>
+      <li><a class="hover:text-brand" href="#order">اطلب موقعك</a></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <a href="#" data-wa class="btn hidden sm:inline-flex bg-brand hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg">اطلب موقعك الآن</a>
+      <button id="menuBtn" class="lg:hidden w-10 h-10 grid place-items-center rounded-lg border border-slate-200" aria-label="القائمة" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-5 py-4 space-y-3 text-sm font-medium">
+    <a class="block" href="#why">لماذا نحن</a><a class="block" href="#works">أعمالنا</a><a class="block" href="#plans">الباقات</a><a class="block" href="#steps">خطوات العمل</a><a class="block" href="#order">اطلب موقعك</a>
+    <a href="#" data-wa class="block text-center bg-brand text-white font-semibold px-5 py-3 rounded-lg">اطلب موقعك الآن</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- Hero -->
+<section class="relative bg-navy text-white overflow-hidden">
+  <div class="absolute inset-0 grid-bg" aria-hidden="true"></div>
+  <div class="absolute -top-32 -left-24 w-[420px] h-[420px] rounded-full bg-brand/30 blur-3xl" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-5 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-bold leading-[1.35]">مواقع سريعة ومتجاوبة وعصرية، تبيع لك وأنت نائم</h1>
+      <p class="mt-6 text-slate-300 text-lg leading-8 max-w-xl">في كود لايت نصمم ونبرمج واجهات أمامية، وصفحات هبوط، ومواقع تعريفية للمتاجر والمقاهي والشركات، لتظهر مشاريعكم بصورة تليق بها وتحوّل الزائر إلى عميل.</p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#" data-wa class="btn bg-brand hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg shadow-brand/30">اطلب موقعك عبر واتساب</a>
+        <a href="#works" class="btn border border-white/25 hover:bg-white/10 text-white font-semibold px-7 py-3.5 rounded-xl">تصفح أعمالنا</a>
+      </div>
+      <dl class="mt-12 flex gap-10 text-sm text-slate-300">
+        <div><dt>سرعة التحميل</dt><dd class="text-white text-xl font-semibold mt-1" dir="ltr">&lt; 2s</dd></div>
+        <div><dt>التوافق</dt><dd class="text-white text-xl font-semibold mt-1">جوال وتابلت وحاسب</dd></div>
+      </dl>
+    </div>
+    <!-- Live code -> site -->
+    <div class="relative" aria-hidden="true">
+      <div class="rounded-2xl bg-ink border border-white/10 shadow-2xl overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-black/20">
+          <i class="w-3 h-3 rounded-full bg-red-400/80"></i><i class="w-3 h-3 rounded-full bg-yellow-400/80"></i><i class="w-3 h-3 rounded-full bg-green-400/80"></i>
+          <span class="code text-xs text-slate-400 mr-auto ml-0" style="margin-inline-start:auto">index.html</span>
+        </div>
+        <pre id="typed" class="code text-[13px] leading-7 text-sky p-5 min-h-[230px] whitespace-pre-wrap"></pre>
+      </div>
+      <div class="absolute -bottom-8 -right-2 sm:-right-6 w-[62%] rounded-xl bg-white text-navy shadow-2xl border border-slate-200 overflow-hidden">
+        <div class="h-5 bg-mist border-b border-slate-200"></div>
+        <div class="p-3 space-y-2">
+          <div class="h-3 w-2/3 rounded bg-navy"></div>
+          <div class="h-2 w-full rounded bg-slate-200"></div><div class="h-2 w-4/5 rounded bg-slate-200"></div>
+          <div class="h-6 w-20 rounded bg-brand mt-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why -->
+<section id="why" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-2xl rv">
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">لماذا تختار كود لايت لموقعك؟</h2>
+      <p class="mt-4 text-slate-600 leading-8">لأن الموقع هو واجهة مشروعك الأولى، ونحن نبنيه ليُقنع الزائر من النظرة الأولى ويسهّل عليه التواصل معك.</p>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="card rv rounded-2xl border border-slate-200 p-6">
+        <svg class="text-brand" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        <h3 class="mt-5 font-semibold text-lg">تصميم عصري مخصص</h3>
+        <p class="mt-2 text-sm leading-7 text-slate-600">هوية بصرية نظيفة وخطوط واضحة تعكس احترافية نشاطك وتميّزه عن المنافسين.</p>
+      </article>
+      <article class="card rv rounded-2xl border border-slate-200 p-6">
+        <svg class="text-brand" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+        <h3 class="mt-5 font-semibold text-lg">سرعة تحميل عالية</h3>
+        <p class="mt-2 text-sm leading-7 text-slate-600">كود خفيف ومحسّن يفتح في ثوانٍ، فلا يغادر الزائر قبل أن يرى خدماتك.</p>
+      </article>
+      <article class="card rv rounded-2xl border border-slate-200 p-6">
+        <svg class="text-brand" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        <h3 class="mt-5 font-semibold text-lg">متجاوب 100% مع الجوال</h3>
+        <p class="mt-2 text-sm leading-7 text-slate-600">يظهر بشكل متقن على الجوال أولًا ثم التابلت والشاشات الكبيرة، مع دعم كامل للعربية.</p>
+      </article>
+      <article class="card rv rounded-2xl border border-slate-200 p-6">
+        <svg class="text-brand" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3 class="mt-5 font-semibold text-lg">تسليم سريع بدون تعقيد</h3>
+        <p class="mt-2 text-sm leading-7 text-slate-600">نتواصل معك عبر واتساب مباشرة، وتستلم موقعك في وقت قصير دون إجراءات مرهقة.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Portfolio ============
+  ✏️ لتعديل رابط المعاينة: غيّر قيمة href في زر "معاينة النموذج" داخل كل بطاقة.
+  إذا كان العمل غير جاهز بعد، اجعل href="#" واترك data-soon ليظهر تنبيه "قريباً". -->
+<section id="works" class="py-20 md:py-28 bg-mist">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-2xl rv">
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">نماذج من أعمالنا</h2>
+      <p class="mt-4 text-slate-600 leading-8">عاين أعمالًا حقيقية، ثم اطلب تصميمًا مشابهًا لمشروعك.</p>
+    </div>
+    <div class="mt-12 flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-5 px-5 md:mx-0 md:px-0">
+
+      <!-- 1) مقهى سُلافة -->
+      <article class="card rv snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
+        <div class="h-52 p-4" style="background:linear-gradient(135deg,#3b2a20,#7a5238)" aria-hidden="true">
+          <div class="h-full rounded-lg bg-[#fbf3e8] p-3 flex flex-col gap-2">
+            <div class="flex justify-between"><i class="h-2 w-12 rounded bg-[#7a5238]"></i><i class="h-2 w-16 rounded bg-[#d9c3a8]"></i></div>
+            <div class="h-3 w-3/5 rounded bg-[#3b2a20] mt-2"></div><div class="h-2 w-4/5 rounded bg-[#d9c3a8]"></div>
+            <div class="mt-auto grid grid-cols-3 gap-2"><i class="h-10 rounded bg-[#e9d5bb]"></i><i class="h-10 rounded bg-[#e9d5bb]"></i><i class="h-10 rounded bg-[#e9d5bb]"></i></div>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-lg">مقهى سُلافة <span dir="ltr" class="text-slate-400 text-sm font-normal">Sulafah Coffee</span></h3>
+          <p class="mt-2 text-sm text-slate-600 leading-7">موقع تعريفي ومنيو لمقهى قهوة مختصة.</p>
+          <div class="mt-auto pt-5 flex flex-col gap-2">
+            <!-- ✏️ رابط المعاينة -->
+            <a href="https://abdulrazzaqal-otaibi.github.io/Sulafah-Coffee-/" target="_blank" rel="noopener" class="btn text-center bg-navy text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-ink">معاينة النموذج</a>
+            <a href="#" data-wa data-plan="تصميم مشابه لنموذج مقهى سُلافة" class="btn text-center border border-brand text-brand text-sm font-semibold py-2.5 rounded-lg hover:bg-brand hover:text-white">اطلب تصميماً مشابهاً</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2) منصة مِرساة -->
+      <article class="card rv snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
+        <div class="h-52 p-4" style="background:linear-gradient(135deg,#0B1426,#6d4aff)" aria-hidden="true">
+          <div class="h-full rounded-lg bg-white p-3 flex flex-col gap-2">
+            <div class="h-2 w-1/4 rounded bg-navy"></div>
+            <div class="h-3 w-2/3 rounded bg-navy mt-3"></div><div class="h-2 w-1/2 rounded bg-slate-200"></div>
+            <div class="mt-auto flex items-end gap-2"><i class="h-14 w-8 rounded-md bg-violet-200"></i><i class="h-20 w-8 rounded-md bg-violet-400"></i><i class="h-8 flex-1 rounded bg-brand"></i></div>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-lg">منصة مِرساة <span dir="ltr" class="text-slate-400 text-sm font-normal">Mirsat</span></h3>
+          <p class="mt-2 text-sm text-slate-600 leading-7">صفحة هبوط لمنتج وتطبيق رقمي.</p>
+          <div class="mt-auto pt-5 flex flex-col gap-2">
+            <!-- ✏️ رابط المعاينة -->
+            <a href="https://abdulrazzaqal-otaibi.github.io/Mirsat/" target="_blank" rel="noopener" class="btn text-center bg-navy text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-ink">معاينة النموذج</a>
+            <a href="#" data-wa data-plan="تصميم مشابه لنموذج منصة مِرساة" class="btn text-center border border-brand text-brand text-sm font-semibold py-2.5 rounded-lg hover:bg-brand hover:text-white">اطلب تصميماً مشابهاً</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3) نموذج جاهز للتعديل (عيادة / متجر) -->
+      <article class="card rv snap-center shrink-0 w-[85%] sm:w-[60%] md:w-auto rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
+        <div class="h-52 p-4" style="background:linear-gradient(135deg,#0f766e,#34d399)" aria-hidden="true">
+          <div class="h-full rounded-lg bg-white p-3 flex flex-col gap-2">
+            <div class="flex justify-between"><i class="h-2 w-10 rounded bg-teal-700"></i><i class="h-4 w-4 rounded-full bg-teal-200"></i></div>
+            <div class="grid grid-cols-3 gap-2 mt-2 flex-1"><i class="rounded bg-teal-50 border border-teal-100"></i><i class="rounded bg-teal-50 border border-teal-100"></i><i class="rounded bg-teal-50 border border-teal-100"></i><i class="rounded bg-teal-50 border border-teal-100"></i><i class="rounded bg-teal-50 border border-teal-100"></i><i class="rounded bg-teal-50 border border-teal-100"></i></div>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <!-- ✏️ عدّل الاسم والوصف والرابط عند إضافة العمل الثالث -->
+          <h3 class="font-semibold text-lg">موقع عيادة أو متجر إلكتروني <span class="mr-1 align-middle text-[11px] font-semibold bg-teal-100 text-teal-700 px-2 py-0.5 rounded-full">قريباً</span></h3>
+          <p class="mt-2 text-sm text-slate-600 leading-7">نموذج ثالث قيد الإضافة لعيادة أو متجر.</p>
+          <div class="mt-auto pt-5 flex flex-col gap-2">
+            <a href="#" data-soon class="btn text-center bg-navy text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-ink">معاينة النموذج</a>
+            <a href="#" data-wa data-plan="تصميم مشابه لنموذج موقع عيادة أو متجر إلكتروني" class="btn text-center border border-brand text-brand text-sm font-semibold py-2.5 rounded-lg hover:bg-brand hover:text-white">اطلب تصميماً مشابهاً</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Packages ============
+  ✏️ لتعديل الأسعار: غيّر قيم الكائن PRICES في أول السكربت أسفل الصفحة (يُطبَّق تلقائياً). -->
+<section id="plans" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-2xl rv">
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">باقات تناسب حجم مشروعك</h2>
+      <p class="mt-4 text-slate-600 leading-8">اختر الأقرب لاحتياجك، ويُحدَّد السعر النهائي بعد معرفة تفاصيل مشروعك.</p>
+    </div>
+    <div class="mt-12 grid lg:grid-cols-3 gap-6 items-stretch">
+      <article class="card rv rounded-2xl border border-slate-200 p-7 flex flex-col">
+        <h3 class="text-xl font-bold">باقة البداية</h3>
+        <p class="text-sm text-brand font-medium mt-1">صفحة هبوط</p>
+        <p class="mt-4 text-2xl font-bold" data-price="start"></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li class="flex gap-2"><span class="text-brand">✓</span>صفحة واحدة بتصميم مخصص</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>متجاوبة مع الجوال</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>زر واتساب مباشر</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>تسليم سريع</li>
+        </ul>
+        <a href="#" data-wa data-plan="باقة البداية (صفحة هبوط)" class="btn mt-8 text-center border border-navy text-navy hover:bg-navy hover:text-white font-semibold py-3 rounded-xl">اطلب هذه الباقة</a>
+      </article>
+      <article class="card rv rounded-2xl bg-navy text-white p-7 flex flex-col relative lg:scale-[1.03] border-brand shadow-xl shadow-brand/20">
+        <span class="absolute -top-3 right-7 bg-brand text-xs font-semibold px-3 py-1 rounded-full">الأكثر طلبًا</span>
+        <h3 class="text-xl font-bold">باقة الأعمال</h3>
+        <p class="text-sm text-sky font-medium mt-1">موقع متكامل</p>
+        <p class="mt-4 text-2xl font-bold" data-price="business"></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1 text-slate-200">
+          <li class="flex gap-2"><span class="text-sky">✓</span>عدة صفحات داخلية</li>
+          <li class="flex gap-2"><span class="text-sky">✓</span>قسم أعمال أو منيو أو منتجات</li>
+          <li class="flex gap-2"><span class="text-sky">✓</span>تحسين السرعة وظهور البحث</li>
+          <li class="flex gap-2"><span class="text-sky">✓</span>نموذج تواصل عبر واتساب</li>
+        </ul>
+        <a href="#" data-wa data-plan="باقة الأعمال (موقع متكامل)" class="btn mt-8 text-center bg-brand hover:bg-blue-500 text-white font-semibold py-3 rounded-xl">اطلب هذه الباقة</a>
+      </article>
+      <article class="card rv rounded-2xl border border-slate-200 p-7 flex flex-col">
+        <h3 class="text-xl font-bold">باقة مخصصة</h3>
+        <p class="text-sm text-brand font-medium mt-1">حسب فكرتك</p>
+        <p class="mt-4 text-2xl font-bold" data-price="custom"></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li class="flex gap-2"><span class="text-brand">✓</span>متجر أو منصة أو فكرة خاصة</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>ميزات وتفاعلات حسب الطلب</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>هوية بصرية متكاملة</li>
+          <li class="flex gap-2"><span class="text-brand">✓</span>متابعة بعد التسليم</li>
+        </ul>
+        <a href="#" data-wa data-plan="الباقة المخصصة" class="btn mt-8 text-center border border-navy text-navy hover:bg-navy hover:text-white font-semibold py-3 rounded-xl">اطلب هذه الباقة</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section id="steps" class="py-20 md:py-28 bg-navy text-white">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="max-w-2xl rv">
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">من الفكرة إلى موقع جاهز في أربع خطوات</h2>
+    </div>
+    <ol class="mt-12 grid md:grid-cols-4 gap-6">
+      <li class="rv rounded-2xl border border-white/10 bg-white/5 p-6"><span class="code text-sky text-2xl font-semibold">1</span><h3 class="mt-4 font-semibold text-lg">نتحدث عن مشروعك</h3><p class="mt-2 text-sm text-slate-300 leading-7">تراسلنا عبر واتساب وتخبرنا عن نشاطك وما تريده من الموقع.</p></li>
+      <li class="rv rounded-2xl border border-white/10 bg-white/5 p-6"><span class="code text-sky text-2xl font-semibold">2</span><h3 class="mt-4 font-semibold text-lg">نصمم النموذج</h3><p class="mt-2 text-sm text-slate-300 leading-7">نعرض عليك تصميمًا أوليًا يناسب هويتك لتعتمده أو تعدّل عليه.</p></li>
+      <li class="rv rounded-2xl border border-white/10 bg-white/5 p-6"><span class="code text-sky text-2xl font-semibold">3</span><h3 class="mt-4 font-semibold text-lg">نبرمج ونختبر</h3><p class="mt-2 text-sm text-slate-300 leading-7">نحوّل التصميم إلى موقع سريع ونجرّبه على مختلف الأجهزة.</p></li>
+      <li class="rv rounded-2xl border border-white/10 bg-white/5 p-6"><span class="code text-sky text-2xl font-semibold">4</span><h3 class="mt-4 font-semibold text-lg">نسلّم ونطلق</h3><p class="mt-2 text-sm text-slate-300 leading-7">نسلّمك الموقع جاهزًا ونساعدك على نشره وتشغيله.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Order Builder ============ -->
+<section id="order" class="py-20 md:py-28 bg-mist">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="text-center rv">
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">اطلب موقعك الآن</h2>
+      <p class="mt-4 text-slate-600 leading-8">اختر نوع موقعك وأضف ملاحظاتك، وستصلنا رسالتك جاهزة على واتساب.</p>
+    </div>
+    <div class="rv mt-10 rounded-2xl bg-white border border-slate-200 p-6 md:p-8 shadow-sm">
+      <div>
+        <label for="fName" class="block text-sm font-medium mb-2">الاسم</label>
+        <input id="fName" type="text" autocomplete="name" class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30">
+        <p id="nameErr" class="hidden mt-2 text-sm text-red-600">اكتب اسمك ليتمكن فريقنا من مخاطبتك.</p>
+      </div>
+      <fieldset class="mt-6">
+        <legend class="block text-sm font-medium mb-3">نوع الموقع المطلوب</legend>
+        <div class="grid grid-cols-2 gap-3" id="types">
+          <label class="cursor-pointer"><input class="peer sr-only" type="radio" name="type" value="مقهى / مطعم" checked><span class="block text-center rounded-lg border border-slate-300 py-3 text-sm font-medium peer-checked:bg-brand peer-checked:border-brand peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand/40 transition">مقهى / مطعم</span></label>
+          <label class="cursor-pointer"><input class="peer sr-only" type="radio" name="type" value="منتج رقمي"><span class="block text-center rounded-lg border border-slate-300 py-3 text-sm font-medium peer-checked:bg-brand peer-checked:border-brand peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand/40 transition">منتج رقمي</span></label>
+          <label class="cursor-pointer"><input class="peer sr-only" type="radio" name="type" value="موقع شخصي"><span class="block text-center rounded-lg border border-slate-300 py-3 text-sm font-medium peer-checked:bg-brand peer-checked:border-brand peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand/40 transition">موقع شخصي</span></label>
+          <label class="cursor-pointer"><input class="peer sr-only" type="radio" name="type" value="متجر / شركة"><span class="block text-center rounded-lg border border-slate-300 py-3 text-sm font-medium peer-checked:bg-brand peer-checked:border-brand peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand/40 transition">متجر / شركة</span></label>
+        </div>
+      </fieldset>
+      <div class="mt-6">
+        <label for="fMsg" class="block text-sm font-medium mb-2">ملاحظات مختصرة</label>
+        <textarea id="fMsg" rows="4" class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></textarea>
+      </div>
+      <button id="send" type="button" class="btn mt-6 w-full bg-[#1FA855] hover:bg-[#18904A] text-white font-semibold py-4 rounded-xl">إرسال الطلب عبر واتساب</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-navy text-slate-300" style="padding-bottom:env(safe-area-inset-bottom,0px)">
+  <div class="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <p class="font-bold text-white text-lg">كود لايت <span class="text-slate-500">|</span> <span dir="ltr">CodeLite</span></p>
+      <p class="mt-3 leading-7 max-w-xs">وكالة رقمية متخصصة في تصميم وتطوير مواقع سريعة ومتجاوبة وعصرية للمتاجر والمقاهي والشركات.</p>
+    </div>
+    <nav class="flex flex-col gap-2"><a class="hover:text-white" href="#why">لماذا نحن</a><a class="hover:text-white" href="#works">أعمالنا</a><a class="hover:text-white" href="#plans">الباقات</a><a class="hover:text-white" href="#steps">خطوات العمل</a></nav>
+    <div><a href="#" data-wa class="btn inline-block bg-[#1FA855] hover:bg-[#18904A] text-white font-semibold px-6 py-3 rounded-xl">تواصل معنا عبر واتساب</a></div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-xs text-slate-400">© <span id="yr">2026</span> كود لايت | CodeLite — جميع الحقوق محفوظة. تصميم وتطوير: كود لايت | CodeLite</div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="#" data-wa aria-label="تواصل عبر واتساب" class="btn fixed bottom-5 left-5 z-40 w-14 h-14 rounded-full bg-[#1FA855] grid place-items-center shadow-xl" style="margin-bottom:env(safe-area-inset-bottom,0px)">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+</a>
+
+<script>
+/* ===== إعدادات سهلة التعديل ===== */
+// رقم واتساب الدولي (بدون + أو أصفار) — تستخدمه جميع الأزرار
+const WA_NUMBER = "966507709344";
+// أسعار الباقات: غيّر النص كما تريد (مثال: "ابتداءً من 500 ريال")
+const PRICES = { start: "السعر حسب المشروع", business: "السعر حسب المشروع", custom: "حسب احتياجك" };
+
+// بناء رابط واتساب بترميز صحيح للنص العربي
+const waLink = text => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+
+// أزرار واتساب العامة وأزرار الباقات (data-plan يحدد اسم الباقة/النموذج في الرسالة)
+document.querySelectorAll('[data-wa]').forEach(a=>{
+  const plan=a.dataset.plan;
+  a.target='_blank'; a.rel='noopener';
+  a.href = waLink(plan ? "مرحبًا كود لايت، أرغب في طلب: " + plan + "." : "مرحبًا كود لايت، أرغب في طلب تصميم موقع إلكتروني.");
+});
+
+// الأسعار
+document.querySelectorAll('[data-price]').forEach(el=>{el.textContent=PRICES[el.dataset.price]||'';});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// نموذج الطلب
+document.getElementById('send').addEventListener('click',()=>{
+  const name=document.getElementById('fName').value.trim();
+  const err=document.getElementById('nameErr');
+  if(!name){err.classList.remove('hidden');document.getElementById('fName').focus();return;}
+  err.classList.add('hidden');
+  const type=document.querySelector('input[name="type"]:checked').value;
+  const notes=document.getElementById('fMsg').value.trim();
+  const msg=["مرحبًا كود لايت،","الاسم: "+name,"نوع الموقع المطلوب: "+type].concat(notes?["ملاحظات: "+notes]:[]).join("\n");
+  window.open(waLink(msg),'_blank','noopener');
+});
+
+// أزرار "قريباً"
+const toast=document.createElement('div');
+toast.className='fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-navy text-white text-sm px-5 py-3 rounded-xl shadow-xl hidden';
+toast.textContent='المعاينة قريبًا، ويمكنك طلب تصميم مشابه الآن.';
+document.body.appendChild(toast);
+document.querySelectorAll('[data-soon]').forEach(a=>a.addEventListener('click',e=>{
+  if(a.getAttribute('href')==='#'||a.getAttribute('href')==='#mirsat-demo'){e.preventDefault();toast.classList.remove('hidden');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.add('hidden'),2600);}
+}));
+
+// القائمة على الجوال
+const mb=document.getElementById('menuBtn'), mm=document.getElementById('mobileMenu');
+mb.addEventListener('click',()=>{const o=mm.classList.toggle('hidden');mb.setAttribute('aria-expanded',String(!o));});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.add('hidden');mb.setAttribute('aria-expanded','false');}));
+
+// حركات الظهور عند التمرير
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el);});
+
+// كتابة الكود في الـ Hero
+const code=`<section class="hero">
+  <h1>موقعك، بأفضل صورة</h1>
+  <p>سريع. متجاوب. عصري.</p>
+  <a href="wa.me/…">اطلب الآن</a>
+</section>`;
+const el=document.getElementById('typed');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=code;}
+else{let i=0;(function t(){el.textContent=code.slice(0,i);el.insertAdjacentHTML('beforeend','<span class="caret"></span>');if(i++<code.length)setTimeout(t,38);})();}
+</script>
+</body>
+</html>
